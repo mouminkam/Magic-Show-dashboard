@@ -1,0 +1,314 @@
+@import 'tailwindcss';
+
+/* =============================================================================
+   Magic Show — Admin Design Tokens
+
+   One neutral ramp, one orange accent, four semantic tones. Every token is
+   defined for both themes so a component never has to branch on the theme.
+   Tailwind v4 reads `@theme` for utility generation; the light/dark values are
+   swapped underneath via plain custom properties on :root / .dark.
+
+   The accent (#f97316, matching the storefront's actual original brand
+   color) and the variable architecture are shared with the storefront
+   (src/app/globals.css there) — same names, same shape — so the two apps
+   read as one brand. Everything else here (neutral ramp, type, radii,
+   motion) is unchanged from the original admin system.
+   ============================================================================= */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Surfaces — canvas -> raised -> overlay */
+  --color-canvas: var(--c-canvas);
+  --color-surface: var(--c-surface);
+  --color-raised: var(--c-raised);
+  --color-sunken: var(--c-sunken);
+  --color-overlay: var(--c-overlay);
+
+  /* Hairlines */
+  --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
+
+  /* Ink ramp */
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-muted);
+  --color-faint: var(--c-faint);
+
+  /* Brand */
+  --color-brand: var(--c-brand);
+  --color-brand-hover: var(--c-brand-hover);
+  --color-brand-fg: var(--c-brand-fg);
+  --color-brand-soft: var(--c-brand-soft);
+  --color-brand-ring: var(--c-brand-ring);
+
+  /* Semantic tones */
+  --color-positive: var(--c-positive);
+  --color-positive-soft: var(--c-positive-soft);
+  --color-caution: var(--c-caution);
+  --color-caution-soft: var(--c-caution-soft);
+  --color-critical: var(--c-critical);
+  --color-critical-soft: var(--c-critical-soft);
+  --color-accent-info: var(--c-info);
+  --color-accent-info-soft: var(--c-info-soft);
+
+  /* Type */
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* Radii — one scale, no exceptions */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* Motion */
+  --ease-swift: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Shell metrics */
+  --sidebar-w: 16.5rem;
+  --sidebar-w-collapsed: 4.25rem;
+  --topbar-h: 3.75rem;
+}
+
+/* ---------------------------------------------------------------- light --- */
+:root {
+  --c-canvas: #f7f7f8;
+  --c-surface: #ffffff;
+  --c-raised: #ffffff;
+  --c-sunken: #f1f1f3;
+  --c-overlay: #ffffff;
+
+  --c-line: #e5e5e9;
+  --c-line-strong: #d2d2d9;
+
+  --c-ink: #16161a;
+  --c-muted: #63636e;
+  --c-faint: #8e8e99;
+
+  --c-brand: #f97316;
+  --c-brand-hover: #ea580c;
+  --c-brand-fg: #ffffff;
+  --c-brand-soft: #fff7ed;
+  --c-brand-ring: rgba(249, 115, 22, 0.35);
+
+  --c-positive: #0f7a52;
+  --c-positive-soft: #e0f5ec;
+  --c-caution: #9a6100;
+  --c-caution-soft: #fdf0d9;
+  --c-critical: #bd2d3f;
+  --c-critical-soft: #fce9eb;
+  --c-info: #1a6bb5;
+  --c-info-soft: #e4f0fb;
+
+  /* Charts — hue-separated, tested against both canvases */
+  --chart-1: #f97316;
+  --chart-2: #0d9488;
+  --chart-3: #d97706;
+  --chart-4: #db2777;
+  --chart-5: #2563eb;
+  --chart-6: #65a30d;
+  --chart-grid: rgba(22, 22, 26, 0.08);
+  --chart-axis: #8e8e99;
+
+  --shadow-sm: 0 1px 2px rgba(16, 16, 24, 0.06);
+  --shadow-md: 0 4px 16px -4px rgba(16, 16, 24, 0.12), 0 1px 3px rgba(16, 16, 24, 0.06);
+  --shadow-lg: 0 24px 48px -12px rgba(16, 16, 24, 0.22);
+}
+
+/* ----------------------------------------------------------------- dark --- */
+.dark {
+  --c-canvas: #0b0b0e;
+  --c-surface: #121216;
+  --c-raised: #17171c;
+  --c-sunken: #0e0e12;
+  --c-overlay: #17171c;
+
+  --c-line: #26262e;
+  --c-line-strong: #343440;
+
+  --c-ink: #f2f2f5;
+  --c-muted: #9c9caa;
+  --c-faint: #6e6e7d;
+
+  --c-brand: #fb923c;
+  --c-brand-hover: #fdba74;
+  --c-brand-fg: #1c0a00;
+  --c-brand-soft: rgba(251, 146, 60, 0.14);
+  --c-brand-ring: rgba(251, 146, 60, 0.4);
+
+  --c-positive: #4ade9e;
+  --c-positive-soft: rgba(74, 222, 158, 0.13);
+  --c-caution: #f5b755;
+  --c-caution-soft: rgba(245, 183, 85, 0.13);
+  --c-critical: #ff7a8a;
+  --c-critical-soft: rgba(255, 122, 138, 0.13);
+  --c-info: #6cb4f5;
+  --c-info-soft: rgba(108, 180, 245, 0.13);
+
+  --chart-1: #fb923c;
+  --chart-2: #2dd4bf;
+  --chart-3: #fbbf24;
+  --chart-4: #f472b6;
+  --chart-5: #60a5fa;
+  --chart-6: #a3e635;
+  --chart-grid: rgba(242, 242, 245, 0.07);
+  --chart-axis: #6e6e7d;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 20px -4px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 56px -12px rgba(0, 0, 0, 0.7);
+}
+
+@layer base {
+  * {
+    border-color: var(--c-line);
+  }
+
+  html {
+    background-color: var(--c-canvas);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--c-canvas);
+    color: var(--c-ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.018em;
+    font-weight: 600;
+  }
+
+  ::selection {
+    background: var(--c-brand-soft);
+    color: var(--c-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--c-brand);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--c-faint);
+  }
+
+  /* Numeric columns should never jitter. */
+  .tnum,
+  table td,
+  table th {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--c-line-strong);
+    border-radius: 9999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--c-faint);
+    background-clip: content-box;
+  }
+}
+
+@layer components {
+  /* Micro-label: the small uppercase caption used above values and in groups. */
+  .eyebrow {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--c-faint);
+  }
+
+  .card-shadow {
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Diagonal hatch used behind empty states and the login art panel. */
+  .hatch {
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--c-line) 0,
+      var(--c-line) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+  }
+}
+
+@keyframes ms-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ms-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-in-up {
+  animation: ms-fade-in 0.28s var(--ease-swift) both;
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--c-sunken);
+  border: 1px solid var(--c-line);
+}
+.dark .skeleton {
+  border-color: transparent;
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, var(--c-line), transparent);
+  animation: ms-shimmer 1.5s infinite;
+}
+
+/* Recharts sets an inline focus outline on wrappers; keep the page calm. */
+.recharts-wrapper:focus,
+.recharts-surface:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
