@@ -12,11 +12,15 @@ interface ThemeState {
 
 const ThemeContext = createContext<ThemeState | null>(null);
 
+/**
+ * The console defaults to light mode regardless of the OS/browser
+ * color-scheme preference — dark mode is opt-in only, via the explicit
+ * toggle. It's only skipped when a user already chose a theme previously.
+ */
 function readInitialTheme(): ThemeMode {
   if (typeof window === 'undefined') return 'light';
   const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === 'light' || stored === 'dark') return stored;
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return stored === 'dark' ? 'dark' : 'light';
 }
 
 /**

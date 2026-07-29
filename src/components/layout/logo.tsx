@@ -1,25 +1,25 @@
 import { cn } from '@/lib/utils';
 
+/** Intrinsic aspect ratio of /public/logo.png (1336 x 840). */
+const LOGO_ASPECT = 1336 / 840;
+
 /**
- * The mark is a stylised "MS" monogram in a rounded tile — a shoe-box shape
- * with a diagonal split, which reads at 20px as well as it does at 44px.
+ * The real Magic Show brand mark — shared asset with the storefront, so the
+ * console and the shop read as one product. Rendered at its native aspect
+ * ratio rather than forced into a square tile.
  */
 export function LogoMark({ size = 30, className }: { size?: number; className?: string }) {
+  const height = size;
+  const width = Math.round(size * LOGO_ASPECT);
   return (
-    <span
-      className={cn('inline-flex shrink-0 items-center justify-center rounded-[9px] bg-brand', className)}
-      style={{ width: size, height: size }}
-      aria-hidden
-    >
-      <svg width={size * 0.62} height={size * 0.62} viewBox="0 0 24 24" fill="none">
-        <path
-          d="M3 19V5.5L9.4 13 12 9.6 14.6 13 21 5.5V19"
-          stroke="var(--c-brand-fg)"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+    <span className={cn('inline-flex shrink-0 items-center justify-center', className)} style={{ height }}>
+      <img
+        src="/logo.png"
+        alt="Magic Show"
+        width={width}
+        height={height}
+        style={{ height: '100%', width: 'auto' }}
+      />
     </span>
   );
 }
