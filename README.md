@@ -9,6 +9,12 @@
 </p>
 
 <p align="center">
+  <a href="https://magic-show-dashboard.vercel.app/">
+    <img alt="Live Demo" src="https://img.shields.io/badge/▶_LIVE_DEMO-magic--show--dashboard.vercel.app-f97316?style=for-the-badge&logoColor=white" />
+  </a>
+</p>
+
+<p align="center">
   <img alt="React" src="https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white" />
   <img alt="Vite" src="https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white" />
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white" />
@@ -29,6 +35,10 @@ and persisted to `localStorage` so your changes survive a refresh. Clone it, `np
 `npm run dev`, and you have a fully populated admin console in seconds — 32 screens, real seeded
 data (orders spread across statuses and dates, customers, inventory, coupons with usage history),
 zero setup.
+
+> 🔗 **[magic-show-dashboard.vercel.app](https://magic-show-dashboard.vercel.app/)** is this exact repository,
+> deployed as-is. Sign in with the seeded demo account below — no request access, no waiting on
+> approval, it's the same login anyone cloning the repo would use.
 
 This is one of three sibling projects in the Magic Show portfolio, alongside a Next.js **storefront**
 and a Laravel **backend API** — each lives in its own repository and runs standalone on its own
