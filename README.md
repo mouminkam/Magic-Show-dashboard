@@ -55,7 +55,7 @@ Sign in with the seeded demo account shown on the login screen, or any email fro
 paired with any password of 6+ characters:
 
 ```
-amira.chalhoub@magicshow.ae / magicshow
+amira.chalhoub@magicshow.test / magicshow
 ```
 
 ```bash

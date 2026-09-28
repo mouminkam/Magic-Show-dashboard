@@ -609,7 +609,7 @@ export function buildDatabase(): MockDatabase {
       starts_at: iso(startsAt),
       expires_at: expires ? iso(expires) : null,
       terms_and_conditions:
-        'Cannot be combined with other offers. Excludes gift cards and already-reduced lines. Valid on magicshow.ae and in all GCC branches.',
+        'Cannot be combined with other offers. Excludes gift cards and already-reduced lines. Valid on magicshow.test and in all GCC branches.',
       ...ts(startsAt),
     } satisfies Coupon;
   });
@@ -807,7 +807,7 @@ export function buildDatabase(): MockDatabase {
     name,
     role,
     bio,
-    email: `${slugify(name).replace('-', '.')}@magicshow.ae`,
+    email: `${slugify(name).replace('-', '.')}@magicshow.test`,
     phone: `+971 4 ${rng.int(200, 899)} ${rng.int(1000, 9999)}`,
     linkedin: `https://linkedin.com/in/${slugify(name)}`,
     instagram: `https://instagram.com/${slugify(name).replace(/-/g, '')}`,
@@ -827,7 +827,7 @@ export function buildDatabase(): MockDatabase {
     city,
     country: city === 'Riyadh' ? 'Saudi Arabia' : 'United Arab Emirates',
     phone: `+971 4 ${rng.int(200, 899)} ${rng.int(1000, 9999)}`,
-    email: `${code.toLowerCase()}@magicshow.ae`,
+    email: `${code.toLowerCase()}@magicshow.test`,
     manager_name: `${rng.pick(FIRST_NAMES)} ${rng.pick(LAST_NAMES)}`,
     capacity: rng.int(4, 40) * 500,
     capacity_unit: 'units',
@@ -843,7 +843,7 @@ export function buildDatabase(): MockDatabase {
     city,
     country: city === 'Riyadh' ? 'Saudi Arabia' : 'United Arab Emirates',
     phone: `+971 4 ${rng.int(200, 899)} ${rng.int(1000, 9999)}`,
-    email: `${code.toLowerCase()}@magicshow.ae`,
+    email: `${code.toLowerCase()}@magicshow.test`,
     manager_name: `${rng.pick(FIRST_NAMES)} ${rng.pick(LAST_NAMES)}`,
     opening_time: '10:00',
     closing_time: rng.pick(['22:00', '23:00', '00:00']),
@@ -1017,7 +1017,7 @@ export function buildDatabase(): MockDatabase {
     hero_subtitle: 'Our customer experience team answers within one business day.',
     details_title: 'Head office',
     address: 'Warehouse 14, Al Quoz Industrial 3, Dubai, United Arab Emirates',
-    email: 'hello@magicshow.ae',
+    email: 'hello@magicshow.test',
     phone: '+971 4 355 2200',
     fax: '+971 4 355 2201',
     about_title: 'Prefer to come in?',
@@ -1029,7 +1029,7 @@ export function buildDatabase(): MockDatabase {
   const storeSettings: StoreSettings = {
     store_name: 'Magic Show',
     tagline: 'Shoes built to be resoled, not replaced.',
-    support_email: 'hello@magicshow.ae',
+    support_email: 'hello@magicshow.test',
     support_phone: '+971 4 355 2200',
     default_currency: 'AED',
     tax_rate: 5,

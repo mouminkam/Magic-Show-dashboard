@@ -342,13 +342,13 @@ export const CURRENCIES: readonly (readonly [string, string, string, number, boo
 ];
 
 export const ADMIN_USERS: readonly (readonly [string, string, string])[] = [
-  ['Amira Chalhoub', 'amira.chalhoub@magicshow.ae', 'super_admin'],
-  ['Jonas Halvorsen', 'jonas.halvorsen@magicshow.ae', 'super_admin'],
-  ['Tarek Darwish', 'tarek.darwish@magicshow.ae', 'product_manager'],
-  ['Ziad Yassin', 'ziad.yassin@magicshow.ae', 'store_manager'],
-  ['Hassan Fadel', 'hassan.fadel@magicshow.ae', 'store_manager'],
-  ['Priya Nair', 'priya.nair@magicshow.ae', 'customer_service'],
-  ['Elena Ricci', 'elena.ricci@magicshow.ae', 'analytics_team'],
+  ['Amira Chalhoub', 'amira.chalhoub@magicshow.test', 'super_admin'],
+  ['Jonas Halvorsen', 'jonas.halvorsen@magicshow.test', 'super_admin'],
+  ['Tarek Darwish', 'tarek.darwish@magicshow.test', 'product_manager'],
+  ['Ziad Yassin', 'ziad.yassin@magicshow.test', 'store_manager'],
+  ['Hassan Fadel', 'hassan.fadel@magicshow.test', 'store_manager'],
+  ['Priya Nair', 'priya.nair@magicshow.test', 'customer_service'],
+  ['Elena Ricci', 'elena.ricci@magicshow.test', 'analytics_team'],
 ];
 
 export const PERMISSION_MODULES: readonly (readonly [string, string[]])[] = [

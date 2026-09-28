@@ -66,7 +66,7 @@ export default function LoginPage() {
           >
             <Field label="Email" error={form.formState.errors.email?.message} required>
               {(props) => (
-                <Input {...props} {...form.register('email')} type="email" placeholder="you@magicshow.ae" />
+                <Input {...props} {...form.register('email')} type="email" placeholder="you@magicshow.test" />
               )}
             </Field>
 

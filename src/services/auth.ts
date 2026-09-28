@@ -19,7 +19,7 @@ export interface SessionUser {
 }
 
 export const DEMO_CREDENTIALS = {
-  email: 'amira.chalhoub@magicshow.ae',
+  email: 'amira.chalhoub@magicshow.test',
   password: 'magicshow',
 } as const;
 
